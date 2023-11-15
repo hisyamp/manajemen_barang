@@ -142,5 +142,40 @@
                 console.log('Error:', data);
             }
         });
+
 </script>
+<script>
+			var countfetch = 0
+            setInterval(() => {
+                countfetch+=1
+				// console.log("countfetch",countfetch)
+				if(true)
+				{
+					$.ajax({
+						url: `{{url('ceklaporan')}}`,
+						type: "GET", 
+						success: function(response) {
+							// console.log("data detail barang",response.data)
+							if(response.data > 0)
+							{
+								Swal.fire({
+									title: "Alert!",
+									text: "Ada laporan yang harus ditinjau !",
+									icon: "warning",
+									confirmButtonText: `Lihat`,
+								}).then((ok) => {
+									if (ok.value) {
+										window.location.href = "{{ route('list_logbarang')}}";
+									}
+								});
+							}
+							// $('#modal-regis').modal('hide')
+						},
+						error: function(data) { 
+							console.log('Error:', data);
+						}
+					});
+				}
+            }, 10*1000);
+		</script>
 @endsection

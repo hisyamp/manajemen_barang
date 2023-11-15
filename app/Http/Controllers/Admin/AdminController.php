@@ -9,7 +9,8 @@ use App\User;
 use App\Models\Logbarang;
 use Illuminate\Support\Facades\Auth;
 use DataTables;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\LogbarangExport;
 
 class AdminController extends Controller
 {
@@ -84,12 +85,19 @@ class AdminController extends Controller
         // dd($data);
         return response()->json(["status"=>true,"message"=>"Data detail berhasil ditemukan!","data"=>$data]);
     }
-    public function actionbarang($id,$status)
+    public function actionbarang(Request $request, $id,$status)
     {
         $data = Logbarang::find($id);
+        $imageName = null;
+        if($status!='B'){
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+        }
+        // dd($imageName);
         $data->update([
             'status' => $status,
-            'tanggal_approval' => now()
+            'tanggal_approval' => now(),
+            'signature'=> $imageName
         ]);
         
         // dd($data);
@@ -109,5 +117,29 @@ class AdminController extends Controller
             "dataUser"=>$dataUser,
         ];
         return response()->json(["status"=>true,"message"=>"Data berhasil difetch!","data"=>$data]);
+    }
+    public function ceklaporan()
+    {
+        try {
+            $data = Logbarang::where('status','=','A')->count();
+            // dd($data);
+            return response()->json(["status"=>true,"message"=>"Data detail berhasil difetch!","data"=>$data]);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
+    public function export_laporan() 
+    {
+        return Excel::download(new LogbarangExport, 'laporan.xlsx');
+
+    }
+
+    public function signature(Request $request) 
+    {
+        $img = $request->file('signature');
+        dd($img);
+        return response()->json(["status"=>true,"message"=>"Signature berhasil diupload!","data"=>$data]);
+
     }
 }

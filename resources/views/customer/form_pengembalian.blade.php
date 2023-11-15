@@ -23,7 +23,7 @@
             <div class="d-flex flex-column fv-row mb-2">
                 <!--begin::Label-->
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">NO. IO/SP2K/SO/PO/ANDOP</span>
+                    <span>NO. IO/SP2K/SO/PO/ANDOP</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="NO. IO/SP2K/SO/PO/ANDOP"></i>
                 </label>
                 <!--end::Label-->
@@ -34,7 +34,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Tanggal</span>
+                    <span>Tanggal</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tanggal"></i>
                 </label>
                 <!--end::Label-->
@@ -44,7 +44,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Valuation Type</span>
+                    <span>Valuation Type</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Valuation Type"></i>
                 </label>
                 <!--end::Label-->
@@ -62,7 +62,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Lokasi Asal</span>
+                    <span>Lokasi Asal</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Lokasi Asal"></i>
                 </label>
                 <!--end::Label-->
@@ -72,7 +72,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Customer Name(CPE)</span>
+                    <span>Customer Name(CPE)</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Customer Name(CPE)"></i>
                 </label>
                 <!--end::Label-->
@@ -84,7 +84,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Type</span>
+                    <span>Type</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Type"></i>
                 </label>
                 <!--end::Label-->
@@ -94,7 +94,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Merk</span>
+                    <span>Merk</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Merk"></i>
                 </label>
                 <!--end::Label-->
@@ -106,7 +106,7 @@
             <div class="d-flex flex-column fv-row mb-2">
                 <!--begin::Label-->
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Serial Number(SN) / Batch</span>
+                    <span>Serial Number(SN) / Batch</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Serial Number(SN) / Batch"></i>
                 </label>
                 <!--end::Label-->
@@ -121,7 +121,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Continue</span>
+                    <span>Continue</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Continue"></i>
                 </label>
                 <!--end::Label-->
@@ -136,7 +136,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Intermitent</span>
+                    <span>Intermitent</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Intermitent"></i>
                 </label>
                 <!--end::Label-->
@@ -155,7 +155,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Dead On Arrival</span>
+                    <span>Dead On Arrival</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Dead On Arrival"></i>
                 </label>
                 <!--end::Label-->
@@ -170,16 +170,16 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Rectifier/inverter fault(Input/Output Voltage/Current Fault)</span>
+                    <span>Rectifier/inverter fault(Input/Output Voltage/Current Fault)</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Rectifier/inverter fault(Input/Output Voltage/Current Fault)"></i>
                 </label>
                 <!--end::Label-->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="rectifier" name="rectifier"/>
-                    <label class="form-check-label" for="rectifier">
-                    
-                    </label>
-                </div>
+                <select class="form-select form-select-solid drdn" id="rectifier" name="rectifier" data-control="select2" data-hide-search="true" data-placeholder="Rectifier/Inverter Fault" name="valuation_type">
+                    <option value="">Pilih Rectifier/inverter fault</option>
+                    <option value="Input">Input</option>
+                    <option value="Output Voltage">Output Voltage</option>
+                    <option value="Current Fault">Current Fault</option>
+                </select>
                 </div>
                 <!--end::Col-->
             </div>
@@ -190,7 +190,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Dead On Operational</span>
+                    <span>Dead On Operational</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Dead On Operational"></i>
                 </label>
                 <!--end::Label-->
@@ -206,16 +206,15 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Charging/Static Switch</span>
+                    <span>Charging/Static Switch</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Charging/Static Switch"></i>
                 </label>
                 <!--end::Label-->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="charging" name="charging"/>
-                    <label class="form-check-label" for="charging">
-                        
-                    </label>
-                </div>
+                <select class="form-select form-select-solid drdn" id="charging" name="charging" data-control="select2" data-hide-search="true" data-placeholder="Charging/Static Switch" name="valuation_type">
+                    <option value="">Pilih Battery Faulty</option>
+                    <option value="Pengisian Rusak">Pengisian Rusak</option>
+                    <option value="Switch Rusak">Switch Rusak</option>
+                </select>
                 </div>
                 <!--end::Col-->
             </div>
@@ -226,7 +225,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">BER Indicator</span>
+                    <span>BER Indicator</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="BER Indicator"></i>
                 </label>
                 <!--end::Label-->
@@ -242,16 +241,15 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Battery Faulty</span>
+                    <span>Battery Faulty</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Battery Faulty"></i>
                 </label>
                 <!--end::Label-->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="battery_faulty" name="battery_faulty"/>
-                    <label class="form-check-label" for="battery_faulty">
-                        Indikasi error pada display modul/NMS/hasil bertest(disertakan no trip yang error)
-                    </label>
-                </div>
+                <select class="form-select form-select-solid drdn" id="battery_faulty" name="battery_faulty" data-control="select2" data-hide-search="true" data-placeholder="Battery Faulty" name="valuation_type">
+                    <option value="">Pilih Battery Faulty</option>
+                    <option value="Battery Rusak">Battery Rusak</option>
+                    <option value="Battery Drop">Battery Drop</option>
+                </select>
                 </div>
                 <!--end::Col-->
                 
@@ -263,7 +261,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Software Error</span>
+                    <span>Software Error</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Software Error"></i>
                 </label>
                 <!--end::Label-->
@@ -283,7 +281,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Tributary Error</span>
+                    <span>Tributary Error</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tributary Error"></i>
                 </label>
                 <!--end::Label-->
@@ -298,7 +296,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Number of Tribu</span>
+                    <span>Number of Tribu</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tributary Error"></i>
                 </label>
                 <!--end::Label-->
@@ -313,7 +311,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Channel Error</span>
+                    <span>Channel Error</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Channel Error"></i>
                 </label>
                 <!--end::Label-->
@@ -328,7 +326,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Number of Char</span>
+                    <span>Number of Char</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tributary Error"></i>
                 </label>
                 <!--end::Label-->
@@ -343,7 +341,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Port Error</span>
+                    <span>Port Error</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Port Error"></i>
                 </label>
                 <!--end::Label-->
@@ -358,7 +356,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Number of Port</span>
+                    <span>Number of Port</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Port Error"></i>
                 </label>
                 <!--end::Label-->
@@ -373,7 +371,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Laser Tx Faulty</span>
+                    <span>Laser Tx Faulty</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Laser Tx Faulty"></i>
                 </label>
                 <!--end::Label-->
@@ -393,7 +391,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Laser Rx Faulty</span>
+                    <span>Laser Rx Faulty</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Laser Rx Faulty"></i>
                 </label>
                 <!--end::Label-->
@@ -413,7 +411,7 @@
                 <!--begin::Col-->
                 <div class="col-md-6 fv-row">
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Physical Damage</span>
+                    <span>Physical Damage</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Physical Damage"></i>
                 </label>
                 <!--end::Label-->
@@ -434,7 +432,7 @@
             <div class="d-flex flex-column fv-row mb-2">
                 <!--begin::Label-->
                 <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Misscellaneous</span>
+                    <span>Misscellaneous</span>
                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Sebab lain yang tidak tertulis diatas, mohon indikasi dijelaskan"></i>
                 </label>
                 <!--end::Label-->
@@ -511,8 +509,10 @@
                             text: "Data berhasil dikirim !",
                             icon: "success",
                             confirmButtonText: `OK`,
+                            allowOutsideClick: false,
                         }).then((ok) => {
                             if (ok.value) {
+                                location.reload()
                                 console.log("sukses")
                             }
                         });

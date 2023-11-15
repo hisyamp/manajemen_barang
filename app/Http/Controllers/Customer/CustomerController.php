@@ -49,14 +49,13 @@ class CustomerController extends Controller
                     $datapost[$data] = "yes";
                 }
             }
-            return $datapost;
-            $request->request->add([
-                "status" => "A",
-                "user_id" => auth::user()->id,
-                "tanggal_pengembalian" => now(),
-            ]);
-            // dd($request->all());
-            $data = Logbarang::create($request->all());
+            // return $datapost;
+            $datapost["status"] = "A";
+            $datapost["user_id"] = auth::user()->id;
+            $datapost["tanggal_pengembalian"] = now();
+            // return $datapost;
+            unset($datapost["_token"]);
+            $data = Logbarang::create($datapost);
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }

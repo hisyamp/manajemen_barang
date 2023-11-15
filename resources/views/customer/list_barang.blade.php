@@ -5,11 +5,11 @@
   <thead>
     <tr>
       <th class="text-center">No</th>
-      <th class="text-center">Barang</th>
-      <th class="text-center">Jumlah</th>
-      <th class="text-center">Satuan</th>
+      <th class="text-center">NO.IO/SP2K/SO</th>
+      <th class="text-center">Valuation Type</th>
+      <th class="text-center">Customer</th>
       <th class="text-center">Status</th>
-      <th class="text-center">Tanggal pengembalian</th>
+      <th class="text-center">Tanggal Pengembalian</th>
       <th class="text-center">Action</th>
     </tr>
   </thead>
@@ -44,104 +44,439 @@
 						<form id="form-regist" class="form" action="{{ route('register') }}" method="POST">
 						{{ csrf_field() }}
 
-							<!--begin::Heading-->
-							<div class="mb-13 text-center">
-								<!--begin::Title-->
-								<h1 class="mb-3">Detail Pengembalian Barang</h1>
-								<!--end::Title-->
-								<!--begin::Description-->
-								<!-- <div class="text-muted fw-bold fs-5">If you need more info, please check -->
-								<!-- <a href="#" class="fw-bolder link-primary">Project Guidelines</a>.</div> -->
-								<!--end::Description-->
-							</div>
-							<!--end::Heading-->
-							<!--begin::Input group-->
-							<div class="d-flex flex-column fv-row mb-2">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Nama</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nama Lengkap"></i>
-								</label>
-								<!--end::Label-->
-								<input type="text" class="form-control form-control-solid" placeholder="Masukkan Nama Lengkap" name="nama" id="nama" readonly="true"/>
-							</div>
+            <!--begin::Heading-->
+            <div class="mb-13 text-center">
+                <!--begin::Title-->
+                <h1 class="mb-3">Form Pengembalian Barang</h1>
+                <!--end::Title-->
+                <!--begin::Description-->
+                <!-- <div class="text-muted fw-bold fs-5">If you need more info, please check -->
+                <!-- <a href="#" class="fw-bolder link-primary">Project Guidelines</a>.</div> -->
+                <!--end::Description-->
+            </div>
+            <!--end::Heading-->
 
-							<div class="d-flex flex-column fv-row mb-2">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Nama Barang</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nama Barang" readonly="true"></i>
-								</label>
-								<!--end::Label-->
-								<input type="text" class="form-control form-control-solid" placeholder="Masukkan Nama Barang" name="barang" id="barang" />
-							</div>
+            <div class="d-flex flex-column fv-row mb-2">
+                <!--begin::Label-->
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">NO. IO/SP2K/SO/PO/ANDOP</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="NO. IO/SP2K/SO/PO/ANDOP"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="NO. IO/SP2K/SO/PO/ANDOP" name="so" id="so" />
+            </div>
 
-              <div class="row g-9 mb-8">
-								<!--begin::Col-->
-								<div class="col-md-6 fv-row">
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Jumlah</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Jumlah" readonly="true"></i>
-								</label>
-								<!--end::Label-->
-								<input type="text" class="form-control form-control-solid" placeholder="Masukkan Jumlah" name="jumlah" id="jumlah" readonly="true"/>
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-md-6 fv-row">
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Satuan</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Satuan"></i>
-								</label>
-								<!--end::Label-->
-								<input type="text" class="form-control form-control-solid" placeholder="Masukkan Satuan" name="satuan" id="satuan" readonly="true"/>
-								</div>
-								<!--end::Col-->
-							</div>
-              <div class="row g-9 mb-8">
-								<!--begin::Col-->
-								<div class="col-md-6 fv-row">
-                  <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Status Approval</span>
-                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Status Approval"></i>
-                  </label>
-                  <!--end::Label-->
-                  <input type="text" class="form-control form-control-solid" placeholder="Status Approval" name="status" id="status" readonly="true" />
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-md-6 fv-row">
-                  <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                    <span class="required">Tanggal Pengembalian</span>
-                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tanggal Pengembalian"></i>
-                  </label>
-                  <!--end::Label-->
-                  <input type="text" class="form-control form-control-solid" placeholder="Tanggal Pengembalian" name="tanggal_pengembalian" id="tanggal_pengembalian" readonly="true"/>
-								</div>
-								<!--end::Col-->
-							</div>
+        <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Tanggal</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tanggal"></i>
+                </label>
+                <!--end::Label-->
+                <input type="date" class="form-control form-control-solid" placeholder="Tanggal" name="tanggal" id="tanggal"/>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Valuation Type</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Valuation Type"></i>
+                </label>
+                <!--end::Label-->
+                <select class="form-select form-select-solid drdn" id="valuation_type" name="valuation_type" data-control="select2" data-hide-search="true" data-placeholder="Valuation Type" name="valuation_type">
+                    <option value="">Pilih Valuation Type...</option>
+                    <option value="ex-Project">ex-Project</option>
+                    <option value="Dismantle">Dismantle</option>
+                    <option value="Rusak-L">Rusak-L</option>
+                    <option value="Rusak-TL">Rusak-TL</option>
+                </select>
+                </div>
+                <!--end::Col-->
+            </div>
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Lokasi Asal</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Lokasi Asal"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Lokasi Asal" name="lokasi_asal" id="lokasi_asal"/>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Customer Name(CPE)</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Customer Name(CPE)"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Customer Name" name="customer_name" id="customer_name"/>
+                </div>
+                <!--end::Col-->
+            </div>
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Type</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Type"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Type" name="type" id="type"/>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Merk</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Merk"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Merk" name="merk" id="merk"/>
+                </div>
+                <!--end::Col-->
+                
+            </div>
+            <div class="d-flex flex-column fv-row mb-2">
+                <!--begin::Label-->
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Serial Number(SN) / Batch</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Serial Number(SN) / Batch"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Serial Number(SN) / Batch" name="sn" id="sn" />
+            </div>
+            <div class="alert alert-info alert-block mt-5">
+                <div class="text-muted fw-bold fs-5 mb-7 mt-7">Beri tanda centang pada checkbox jika 
+                    <strong class="link-primary fw-bolder">Material Rusak</strong></div>
+            </div>
 
-							<div class="d-flex flex-column fv-row mb-2">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Notes</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Notes"></i>
-								</label>
-								<!--end::Label-->
-                                <textarea class="form-control form-control-solid"  id="notes" cols="30" rows="3" readonly="true"></textarea>
-							</div>
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Continue</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Continue"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="is_continue" name="is_continue"/>
+                    <label class="form-check-label" for="is_continue">
+                        Indikasi error terjadi terus menerus
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Intermitent</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Intermitent"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="intermittent" name="intermittent"/>
+                    <label class="form-check-label" for="intermitent">
+                        Indikasi error terjadi kadang-kadang/random
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+                        <!-- checbox -->
+                        <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Dead On Arrival</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Dead On Arrival"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="dead_on_arrival" name="dead_on_arrival"/>
+                    <label class="form-check-label" for="dead_on_arrival">
+                        Perangkat mati total pada jangka waktu 24 jam setelah pemasangan
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Rectifier/inverter fault(Input/Output Voltage/Current Fault)</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Rectifier/inverter fault(Input/Output Voltage/Current Fault)"></i>
+                </label>
+                <!--end::Label-->
+                <select class="form-select form-select-solid drdn" id="rectifier" name="rectifier" data-control="select2" data-hide-search="true" data-placeholder="Rectifier/Inverter Fault" name="valuation_type">
+                    <option value="">Pilih Rectifier/inverter fault</option>
+                    <option value="Input">Input</option>
+                    <option value="Output Voltage">Output Voltage</option>
+                    <option value="Current Fault">Current Fault</option>
+                </select>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+                        <!-- checbox -->
+                        <div class="row g-9 mb-8">
+                
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Dead On Operational</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Dead On Operational"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="dead_on_operational" name="dead_on_operational"/>
+                    <label class="form-check-label" for="dead_on_operational">
+                        Perangkat mati total saat beroperasi normal
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->                
+                                
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Charging/Static Switch</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Charging/Static Switch"></i>
+                </label>
+                <!--end::Label-->
+                <select class="form-select form-select-solid drdn" id="charging" name="charging" data-control="select2" data-hide-search="true" data-placeholder="Charging/Static Switch" name="valuation_type">
+                    <option value="">Pilih Battery Faulty</option>
+                    <option value="Pengisian Rusak">Pengisian Rusak</option>
+                    <option value="Switch Rusak">Switch Rusak</option>
+                </select>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
 
-                            <div class="d-flex flex-column  fv-row mb-12">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-									<span class="required">Notes Approval</span>
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="notes_admin"></i>
-								</label>
-								<!--end::Label-->
-                                <textarea class="form-control form-control-solid"  id="notes-admin" cols="30" rows="3" readonly="true"></textarea>
-							</div>
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">BER Indicator</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="BER Indicator"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ber" name="ber"/>
+                    <label class="form-check-label" for="ber">
+                        Indikasi error pada display modul/NMS/hasil bertest(disertakan no trip yang error)
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
 
-						</form>
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Battery Faulty</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Battery Faulty"></i>
+                </label>
+                <!--end::Label-->
+                <select class="form-select form-select-solid drdn" id="battery_faulty" name="battery_faulty" data-control="select2" data-hide-search="true" data-placeholder="Battery Faulty" name="valuation_type">
+                    <option value="">Pilih Battery Faulty</option>
+                    <option value="Battery Rusak">Battery Rusak</option>
+                    <option value="Battery Drop">Battery Drop</option>
+                </select>
+                </div>
+                <!--end::Col-->
+                
+            </div>
+            <!-- endchecbox -->
+            
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Software Error</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Software Error"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="software_error" name="software_error"/>
+                    <label class="form-check-label" for="software_error">
+                        Gangguan yang disebabkan firmware/IOS/internet EPROM
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->                
+            </div>
+            <!-- endchecbox -->
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Tributary Error</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tributary Error"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="tributary_error" name="tributary_error"/>
+                    <label class="form-check-label" for="tributary_error">
+                        Low order modul error (PDH/SDH)
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Number of Tribu</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tributary Error"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Number of Tribu" name="number_of_tribu" id="number_of_tribu"/>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Channel Error</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Channel Error"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="channel_error" name="channel_error"/>
+                    <label class="form-check-label" for="channel_error">
+                        64K channelize "<"2Mb Fault (for VFEM,V.24, Voice Ch)
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Number of Char</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tributary Error"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Number of Char" name="number_of_channel" id="number_of_channel"/>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Port Error</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Port Error"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="port_error" name="port_error"/>
+                    <label class="form-check-label" for="port_error">
+                        Port membangkitkan error/mati total(IP network family, converter)
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Number of Port</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Port Error"></i>
+                </label>
+                <!--end::Label-->
+                <input type="text" class="form-control form-control-solid" placeholder="Number of Port" name="number_of_port" id="number_of_port"/>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Laser Tx Faulty</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Laser Tx Faulty"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="tx_laser_faulty" name="tx_laser_faulty"/>
+                    <label class="form-check-label" for="tx_laser_faulty">
+                    Only Optical Modul Tx Loss, No Signal, High Temp, Laser Bias
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Laser Rx Faulty</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Laser Rx Faulty"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="rx_laser_faulty" name="rx_laser_faulty"/>
+                    <label class="form-check-label" for="rx_laser_faulty">
+                        Only Optical Modul No.Rx. Frame error
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!-- endchecbox -->
+
+            <!-- checbox -->
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Physical Damage</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Physical Damage"></i>
+                </label>
+                <!--end::Label-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="physical_damage" name="physical_damage"/>
+                    <label class="form-check-label" for="physical_damage">
+                        Rusak physic perangkat, benturan, short circuit, liquid
+                    </label>
+                </div>
+                </div>
+                <!--end::Col-->
+
+            </div>
+            <!-- endchecbox -->
+
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column fv-row mb-2">
+                <!--begin::Label-->
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Misscellaneous</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Sebab lain yang tidak tertulis diatas, mohon indikasi dijelaskan"></i>
+                </label>
+                <!--end::Label-->
+                <textarea class="form-control form-control-solid"  id="notes" cols="30" rows="3"></textarea>
+            </div>
+            <!-- checbox -->
+
+        </form>
 						<!--end:Form-->
 					</div>
 					<!--end::Modal body-->
@@ -165,15 +500,15 @@
            className: 'dt-body-center',
         },
         {
-           data: 'barang',
+           data: 'so',
            className: 'dt-body-center',
         },
         {
-           data: 'jumlah',
+           data: 'valuation_type',
            className: 'dt-body-center'
         },
         {
-           data: 'satuan',
+           data: 'customer_name',
            className: 'dt-body-center'
         },
         {
@@ -186,7 +521,7 @@
            className: 'dt-body-center',
         },
         {
-           data: 'tanggal_pengembalian',
+           data: 'tanggal',
            className: 'dt-body-center'
         },
         {
@@ -209,18 +544,30 @@
             url: `{{url('detailbarang/${dataid}')}}`,
             type: "GET", 
             success: function(response) {
-                    console.log("data detail barang",response)
+                console.log("data detail barang",response)
                     // $('#modal-regis').modal('hide')
-                    $('#nama').val(response.data.username)
-                    $('#barang').val(response.data.barang)
-                    $('#jumlah').val(response.data.jumlah)
-                    $('#satuan').val(response.data.satuan)
+                    $('#so').val(response.data.so)
+                    $('#valuation_type').val(response.data.valuation_type)
+                    $('#tanggal').val(response.data.tanggal)
+                    $('#lokasi_asal').val(response.data.lokasi_asal)
                     
-                    $('#tanggal_pengembalian').val(response.data.tanggal_pengembalian)
-                    $('#notes').val(response.data.notes)
+                    $('#customer_name').val(response.data.customer_name)
+                    $('#merk').val(response.data.merk)
+                    $('#type').val(response.data.type)
+                    $('#miscelaneous').val(response.data.miscelaneous)
                     if(response.data.status =="A") $('#status').val("Menunggu keputusan")
                     else if(response.data.status =="B") $('#status').val("Ditolak")
                     else if(response.data.status =="C") $('#status').val("Disetujui")
+                    console.log(response.data)
+                    var arr = response.data
+                    // response.data.map((val)=>{console.log(val)})
+                    for (const key in arr) {
+                        if(arr[key] === "yes")
+                        {
+                            $(`#${key}`).prop('checked', true);
+                        }
+                        // console.log(`${key}: ${arr[key]}`);
+                    }
                     
             },
             error: function(data) { 

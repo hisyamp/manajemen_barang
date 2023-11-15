@@ -265,6 +265,7 @@
 		<script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+		
 		@yield("script")
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->

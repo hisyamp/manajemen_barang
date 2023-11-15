@@ -28,10 +28,13 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('reset_password/{id}', [App\Http\Controllers\Admin\AdminController::class,'reset_password']);
     Route::get('aktivasi/{id}', [App\Http\Controllers\Admin\AdminController::class,'aktivasi']);
     Route::get('api_logbarang', [App\Http\Controllers\Admin\AdminController::class,'api_logbarang']);
-    Route::get('list_logbarang', [App\Http\Controllers\Admin\AdminController::class,'list_logbarang']);
+    Route::get('list_logbarang', [App\Http\Controllers\Admin\AdminController::class,'list_logbarang'])->name('list_logbarang');;
     Route::get('detailbarang/{id}', [App\Http\Controllers\Admin\AdminController::class,'detailbarang']);
     Route::post('actionbarang/{id}/{status}', [App\Http\Controllers\Admin\AdminController::class,'actionbarang']);
     Route::get('api_dashboard', [App\Http\Controllers\Admin\AdminController::class,'api_dashboard']);
+    Route::get('ceklaporan', [App\Http\Controllers\Admin\AdminController::class,'ceklaporan'])->name('ceklaporan');
+    Route::get('export_laporan', [App\Http\Controllers\Admin\AdminController::class,'export_laporan'])->name('export_laporan');
+    Route::post('signature', [App\Http\Controllers\Admin\AdminController::class,'signature'])->name('signature');
     //customer
     Route::get('list_pengajuan', [App\Http\Controllers\Customer\CustomerController::class,'list_pengajuan']);
     Route::get('api_logpengajuan', [App\Http\Controllers\Customer\CustomerController::class,'api_logpengajuan']);
