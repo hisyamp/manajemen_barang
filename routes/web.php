@@ -27,14 +27,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('api_user', [App\Http\Controllers\Admin\AdminController::class,'api_user']);
     Route::get('reset_password/{id}', [App\Http\Controllers\Admin\AdminController::class,'reset_password']);
     Route::get('aktivasi/{id}', [App\Http\Controllers\Admin\AdminController::class,'aktivasi']);
-    Route::get('api_logbarang', [App\Http\Controllers\Admin\AdminController::class,'api_logbarang']);
-    Route::get('list_logbarang', [App\Http\Controllers\Admin\AdminController::class,'list_logbarang']);
-    Route::get('detailbarang/{id}', [App\Http\Controllers\Admin\AdminController::class,'detailbarang']);
-    Route::post('actionbarang/{id}/{status}', [App\Http\Controllers\Admin\AdminController::class,'actionbarang']);
+    Route::get('api_logproduct', [App\Http\Controllers\Admin\AdminController::class,'api_logproduct']);
+    Route::get('list_logproduct', [App\Http\Controllers\Admin\AdminController::class,'list_logproduct']);
     Route::get('api_dashboard', [App\Http\Controllers\Admin\AdminController::class,'api_dashboard']);
     //customer
-    Route::get('list_pengajuan', [App\Http\Controllers\Customer\CustomerController::class,'list_pengajuan']);
-    Route::get('api_logpengajuan', [App\Http\Controllers\Customer\CustomerController::class,'api_logpengajuan']);
-    Route::get('form_pengembalian', [App\Http\Controllers\Customer\CustomerController::class,'form_pengembalian']);
-    Route::post('pengembalian', [App\Http\Controllers\Customer\CustomerController::class,'pengembalian']);
+    Route::get('list_product', [App\Http\Controllers\Customer\CustomerController::class,'list_product']);
+    Route::get('api_logproduct', [App\Http\Controllers\Customer\CustomerController::class,'api_logproduct']);
+    Route::get('form_product', [App\Http\Controllers\Customer\CustomerController::class,'form_product']);
+    Route::post('product', [App\Http\Controllers\Customer\CustomerController::class,'product']);
 });

@@ -27,19 +27,19 @@ class AdminController extends Controller
         $role = Auth::user()->role;
         return view('admin.list_user',compact('role'));
     }
-    public function list_barang()
+    public function list_product()
     {
         $role = Auth::user()->role;
-        return view('admin.list_barang',compact('role'));
+        return view('admin.list_product',compact('role'));
     }
     public function api_user()
     {
         $data = User::all();
         return DataTables::of($data)->make(true);
     }
-    public function api_logbarang()
+    public function api_logproduct()
     {
-        $data = Logbarang::all();
+        $data = Product::all();
         return DataTables::of($data)->make(true);
     }
     public function reset_password($id)
@@ -56,45 +56,13 @@ class AdminController extends Controller
         return DataTables::of($data)->make(true);
     }
 
-    public function aktivasi($id)
-    {
-        try {
-            $data = User::find($id);
-            $status = $data->is_active;
-            if($status == 1)$status = 0;
-            else $status=1;
-            $data->update([
-                'is_active' => $status
-            ]);
-            return response()->json(["status"=>true,"message"=>"data berhasil diupdate!","data"=>$data],200);
-        } catch (\Throwable $th) {
-            return response()->json(["status"=>false,"message"=>$th->getMessage()],500);
-        }
-        return DataTables::of($data)->make(true);
-    }
+    
     public function list_logbarang()
     {
         $role = Auth::user()->role;
         return view('admin.list_barang',compact('role'));
     }
-    public function detailbarang($id)
-    {
-        $data = Logbarang::where('log_barang.id',$id)
-        ->join('users as u','log_barang.user_id','=','u.id')->first();
-        // dd($data);
-        return response()->json(["status"=>true,"message"=>"Data detail berhasil ditemukan!","data"=>$data]);
-    }
-    public function actionbarang($id,$status)
-    {
-        $data = Logbarang::find($id);
-        $data->update([
-            'status' => $status,
-            'tanggal_approval' => now()
-        ]);
-        
-        // dd($data);
-        return response()->json(["status"=>true,"message"=>"Data berhasil diupdate!","data"=>$data]);
-    }
+    
     public function api_dashboard()
     {
         $dataA = Logbarang::where('status','=','A')->count();
