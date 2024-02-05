@@ -50,11 +50,12 @@ class LoginController extends Controller
         try {
             // dd($getrole_id);
             if(Auth::attempt([
-                'email' => $request->email,
+                'username' => $request->email,
                 'password' => $request->password,
                 'is_active' => '1'
                 ])){
                     $request->session()->regenerate();
+                    // dd('aaa');
                     if(Auth::user()->role == "admin") return redirect('dashboard_admin');
                     else if(Auth::user()->role == "user") return redirect('list_pengajuan');
                     else return redirect('/');

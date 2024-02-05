@@ -13,74 +13,8 @@
             <div id="chart" style="height: 350px;"></div>
         </div>
     </div>
-    <div class="card-body card-scroll h-500px">
-    <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-            <!--begin::Number-->
-            <div class="d-flex align-items-center">
-                <span class="svg-icon fs-3 text-success me-2">
-                    >>>
-                </span>
-                <div class="fs-2 fw-bold" data-kt-countup="false" data-kt-countup-prefix="@" id="box-user">0</div>
-            </div>
-            <!--end::Number-->
-
-            <!--begin::Label-->
-            <div class="fw-semibold fs-6 ">Jumlah User</div>
-            <!--end::Label-->
-        </div>
-        <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-            <!--begin::Number-->
-            <div class="d-flex align-items-center">
-                <span class="svg-icon fs-3 text-success me-2">
-                    >>>
-                </span>
-                <div class="fs-2 fw-bold" data-kt-countup="false" data-kt-countup-prefix="@" id="box-A">0</div>
-            </div>
-            <!--end::Number-->
-
-            <!--begin::Label-->
-            <div class="fw-semibold fs-6 ">Menunggu Persetujuan</div>
-            <!--end::Label-->
-        </div>
-        <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-            <!--begin::Number-->
-            <div class="d-flex align-items-center">
-                <span class="svg-icon fs-3 text-success me-2">
-                    >>>
-                </span>
-                <div class="fs-2 fw-bold" data-kt-countup="false" data-kt-countup-prefix="@" id="box-B">0</div>
-            </div>
-            <!--end::Number-->
-
-            <!--begin::Label-->
-            <div class="fw-semibold fs-6 ">Pengajuan Ditolak</div>
-            <!--end::Label-->
-        </div>
-        <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-            <!--begin::Number-->
-            <div class="d-flex align-items-center">
-                <span class="svg-icon fs-3 text-success me-2">
-                    >>>
-                </span>
-                <div class="fs-2 fw-bold" data-kt-countup="false" data-kt-countup-prefix="@" id="box-C">0</div>
-            </div>
-            <!--end::Number-->
-
-            <!--begin::Label-->
-            <div class="fw-semibold fs-6 ">Pengajuan Disetujui</div>
-            <!--end::Label-->
-        </div>
-    </div>
-    <div class="card-footer">
-        Footer
-    </div>
 </div>
 
-<script>
-    function payNow(){
-        // console.log("tes asajaaa")
-    }
-</script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
         $.ajax({

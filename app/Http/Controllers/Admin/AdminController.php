@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\User;
-use App\Models\Logbarang;
+use App\Models\ProductLog;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 use DataTables;
 
 
@@ -19,7 +22,8 @@ class AdminController extends Controller
     }
     public function dashboard_admin()
     {
-        $role = Auth::user()->role;
+        $role = Auth::user()->role_id;
+        // dd($role);
         return view('admin.dashboard_admin',compact('role'));
     }
     public function list_user()
@@ -27,7 +31,7 @@ class AdminController extends Controller
         $role = Auth::user()->role;
         return view('admin.list_user',compact('role'));
     }
-    public function list_product()
+    public function list_logproduct()
     {
         $role = Auth::user()->role;
         return view('admin.list_product',compact('role'));
@@ -37,9 +41,13 @@ class AdminController extends Controller
         $data = User::all();
         return DataTables::of($data)->make(true);
     }
-    public function api_logproduct()
+    public function api_logproduct($date)
     {
-        $data = Product::all();
+        $date_convert = Carbon::createFromFormat('m-d-Y', $date)->format('Y-m-d');
+        // dd($date_convert);
+        $data = DB::table('product_log')
+        ->whereDate('product_log.created_at','=',$date_convert)
+        ->leftJoin('product as p','p.id','=','product_log.product_id')->get();
         return DataTables::of($data)->make(true);
     }
     public function reset_password($id)

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Logbarang;
+use App\Models\Product;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use DataTables;

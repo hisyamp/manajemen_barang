@@ -20,11 +20,11 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
-
+        // dd(Auth::user());
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if(Auth::user()->role=="admin") return redirect('/dashboard_admin');
-                else if(Auth::user()->role=="user") return redirect('/list_pengajuan');
+                if(Auth::user()->role_id==1) return redirect('/dashboard_admin');
+                else if(Auth::user()->role_id==2) return redirect('/dashboard_admin');
                 return redirect('/');
             }
         }

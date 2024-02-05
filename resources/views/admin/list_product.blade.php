@@ -1,19 +1,33 @@
 @extends('template_backend_admin.app')
-@section('subjudul','Data User')
+@section('subjudul','Data Product')
 @section('content')
-<table id="table-user" class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th class="text-center">No</th>
-      <th class="text-center">Barang</th>
-      <th class="text-center">Jumlah</th>
-      <th class="text-center">Satuan</th>
-      <th class="text-center">Status</th>
-      <th class="text-center">Tanggal pengembalian</th>
-      <th class="text-center">Action</th>
-    </tr>
-  </thead>
-</table>
+<div class="card p-5 m-3">
+            <div class="row g-9 mb-8">
+                <!--begin::Col-->
+                <div class="col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                    <span class="required">Tanggal</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Tanggal"></i>
+                </label>
+                <!--end::Label-->
+                <input type="date" class="form-control form-control-solid" placeholder="Tanggal" name="tanggal" id="tanggal"/>
+                </div>
+                <!--end::Col-->
+            </div>
+</div>
+
+<div class="card p-5 m-3">
+    <table id="table" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+        <th class="text-center">No</th>
+        <th class="text-center">Product</th>
+        <th class="text-center">Jumlah</th>
+        <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    </table>
+</div>
 @endsection
 @section('script')
 <div class="modal" id="modal-detail" tabindex="-1" aria-hidden="true">
@@ -164,10 +178,17 @@
     
 <script type="text/javascript">
   $(document).ready(function () {
-    $('#table-user').DataTable({
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '-' + dd + '-' + yyyy;
+    // console.log(today)
+    $('#table').DataTable({
       processing: true,
       serverSide: true,
-      ajax: '{{url('api_logbarang')}}',
+      ajax: '{{url('api_logproduct/today')}}',
       columns: [
         {
            render: function (data, type, row, meta) {
@@ -176,28 +197,11 @@
            className: 'dt-body-center',
         },
         {
-           data: 'barang',
+           data: 'product',
            className: 'dt-body-center',
         },
         {
-           data: 'jumlah',
-           className: 'dt-body-center'
-        },
-        {
-           data: 'satuan',
-           className: 'dt-body-center'
-        },
-        {
-          "render": function ( data, type, row ) {
-             if(row.status=="A")return 'menunggu'
-             else if(row.status=="B")return 'ditolak'
-             else if(row.status=="C")return 'disetujui'
-             else return '-'
-           },
-           className: 'dt-body-center',
-        },
-        {
-           data: 'tanggal_pengembalian',
+           data: 'qty',
            className: 'dt-body-center'
         },
         {
