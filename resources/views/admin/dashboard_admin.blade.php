@@ -9,7 +9,11 @@
         <h3 class="card-title">Dashboard Laporan</h3>
     </div>
     <div class="card card-bordered">
+        
         <div class="card-body">
+            <div class="text-center">
+                <h4>Coming Soon...</h4>
+            </div>
             <div id="chart" style="height: 350px;"></div>
         </div>
     </div>

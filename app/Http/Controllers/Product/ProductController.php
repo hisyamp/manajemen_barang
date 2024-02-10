@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Productlog;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use DataTables;
@@ -19,16 +20,17 @@ class ProductController extends Controller
     
     public function list_product()
     {
-        $role = auth::user()->role;
+        $role = auth::user()->role_id;
         // dd($role);
         return view('product.list_product',compact('role'));
     }
 
     public function form_product()
     {
-        $role = auth::user()->role;
+        $role = auth::user()->role_id;
         // dd($role);
-        return view('product.form_product',compact('role'));
+        $product = Product::all();
+        return view('product.form_product',compact('role','product'));
     }
 
     public function api_logproduct($time)
@@ -37,30 +39,37 @@ class ProductController extends Controller
         return DataTables::of($data)->make(true);
     }
 
-    public function pengembalian(Request $request)
+    public function product(Request $request)
     {
         try {
             $datapost = $request->all();
-            // dd($data);
-            $arr = [];
-            foreach($datapost as $data => $d){
-                // dd($data);
-                if($d == null){
-                    $datapost[$data] = "yes";
-                }
+            $dataExisting = Productlog::where('product_id','=',$request->product)
+            ->whereDate('created_at', '=', now())
+            ->first();
+
+            // dd($dataExisting);
+            if(isset($dataExisting)){
+                $dataExisting->update([
+                    "qty" => $request->qty,
+                    "submited_by" => auth::user()->id,
+                    'updated_at' => now()
+                ]);
+                return response()->json(["status"=>true,"message"=>"Data berhasil diupdate!","data"=>$dataExisting]);
+            }else{
+                $request->request->add([
+                    "product_id" => $request->product,
+                    "qty" => $request->qty,
+                    "submited_by" => auth::user()->id,
+                    "cabang_id" => auth::user()->cabang_id,
+                ]);
+                $data = Productlog::create($request->all());
+                return response()->json(["status"=>true,"message"=>"Data berhasil disimpan!","data"=>$data]);
             }
-            return $datapost;
-            $request->request->add([
-                "status" => "A",
-                "user_id" => auth::user()->id,
-                "tanggal_pengembalian" => now(),
-            ]);
             // dd($request->all());
-            $data = Logbarang::create($request->all());
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
         
-        return response()->json(["status"=>true,"message"=>"Data berhasil disimpan!","data"=>$data]);
+        
     }
 }

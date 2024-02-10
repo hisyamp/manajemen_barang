@@ -28,25 +28,26 @@ class AdminController extends Controller
     }
     public function list_user()
     {
-        $role = Auth::user()->role;
+        $role = Auth::user()->role_id;
         return view('admin.list_user',compact('role'));
     }
     public function list_logproduct()
     {
-        $role = Auth::user()->role;
+        $role = Auth::user()->role_id;
         return view('admin.list_product',compact('role'));
     }
     public function api_user()
     {
-        $data = User::all();
+        $data = DB::table('users')->select('users.*','c.cabang')
+        ->leftJoin('cabang as c','c.id','=','users.cabang_id')->get();
         return DataTables::of($data)->make(true);
     }
     public function api_logproduct($date)
     {
-        $date_convert = Carbon::createFromFormat('m-d-Y', $date)->format('Y-m-d');
+        // $date_convert = Carbon::createFromFormat('m-d-Y', $date)->format('Y-m-d');
         // dd($date_convert);
         $data = DB::table('product_log')
-        ->whereDate('product_log.created_at','=',$date_convert)
+        ->whereDate('product_log.created_at','=',$date)
         ->leftJoin('product as p','p.id','=','product_log.product_id')->get();
         return DataTables::of($data)->make(true);
     }
@@ -57,6 +58,7 @@ class AdminController extends Controller
             $data->update([
                 'password' => Hash::make('1112')
             ]);
+            $data->save();
             return response()->json(["status"=>true,"message"=>"data berhasil diupdate!","data"=>$data],200);
         } catch (\Throwable $th) {
             return response()->json(["status"=>false,"message"=>$th->getMessage()],500);
@@ -64,19 +66,25 @@ class AdminController extends Controller
         return DataTables::of($data)->make(true);
     }
 
-    
-    public function list_logbarang()
+    public function aktivasi(Request $request)
     {
-        $role = Auth::user()->role;
-        return view('admin.list_barang',compact('role'));
+        try {
+            $data = User::find($request->id);
+            $data->update([
+                'is_active' => (int)$request->val
+            ]);
+            return response()->json(["status"=>true,"message"=>"data berhasil diupdate!","data"=>$data],200);
+        } catch (\Throwable $th) {
+            return response()->json(["status"=>false,"message"=>$th->getMessage()],500);
+        }
     }
     
     public function api_dashboard()
     {
-        $dataA = Logbarang::where('status','=','A')->count();
-        $dataB = Logbarang::where('status','=','B')->count();
-        $dataC = Logbarang::where('status','=','C')->count();
-        $dataUser = User::count();
+        $dataA = [];
+        $dataB = [];
+        $dataC = [];
+        $dataUser = [];
         // dd($data);
         $data = [
             "dataA"=>$dataA,

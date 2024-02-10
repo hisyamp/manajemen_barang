@@ -178,17 +178,19 @@
     
 <script type="text/javascript">
   $(document).ready(function () {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
+    var dateX = new Date();
+    var dd = String(dateX.getDate()).padStart(2, '0');
+    var mm = String(dateX.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = dateX.getFullYear();
 
-    today = mm + '-' + dd + '-' + yyyy;
-    // console.log(today)
-    $('#table').DataTable({
+    dateX = yyyy + '-' + mm + '-' + dd;
+    console.log(dateX)
+    $('#tanggal').val(dateX)
+    var api = '{{url('api_logproduct')}}'
+    var table = $('#table').DataTable({
       processing: true,
       serverSide: true,
-      ajax: '{{url('api_logproduct/today')}}',
+      ajax: api+'/'+dateX,
       columns: [
         {
            render: function (data, type, row, meta) {
@@ -381,7 +383,14 @@
             }
         });        
     });
-  
+    $( "#tanggal" ).on( "change", function() {
+        dateX = $(this).val()
+        console.log(dateX)
+        console.log(api)
+        table.ajax.url(api+'/'+dateX)
+        table.ajax.reload();
+        
+    } );
   });
   
 </script>

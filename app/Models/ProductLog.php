@@ -12,18 +12,14 @@ class ProductLog extends Model
     protected $guard = [];
     protected $timestamp = true;
     protected $primaryKey = 'id';
-    // protected $fillable = [
-    //     'user_id',
-    //     'barang',
-    //     'notes',
-    //     'jumlah',
-    //     'satuan',
-    //     'tanggal_pengembalian',
-    //     'status',
-    //     'status_approval',
-    //     'notes_approval',
-    //     'tanggal_approval',
-    //     'approval_by'
-    // ];
+    protected $fillable = [
+        'submited_by',
+        'product_id',
+        'qty',
+        'created_at',
+        'updated_at',
+        'is_deleted',
+        'cabang_id',
+    ];
     
 }

@@ -8,7 +8,7 @@
                     <span class="menu-section text-muted text-uppercase fs-8 ls-1">Menu</span>
                 </div>
             </div>
-            @if($role == "admin")
+            @if($role == 1)
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                 <a href="{{url('/dashboard_admin')}}">
                     <span class="menu-link">
@@ -29,7 +29,7 @@
                 </a>
             </div>
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                <a href="{{url('/list_logbarang')}}">
+                <a href="{{url('/list_logproduct')}}">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin002.svg-->
@@ -41,7 +41,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Data Barang</span>
+                        <span class="menu-title">Data Produk</span>
                         
                     </span>
                 </a>
@@ -65,9 +65,9 @@
                 </a>
             </div>
             @endif
-            @if($role == "user")
+            @if($role == 2)
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                <a href="{{url('/list_pengajuan')}}">
+                <a href="{{url('/list_logproduct')}}">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin002.svg-->
@@ -79,13 +79,13 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">List Pengembalian</span>
+                        <span class="menu-title">Data Produk</span>
                         
                     </span>
                 </a>
             </div>
             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                <a href="{{url('/form_pengembalian')}}">
+                <a href="{{url('/form_product')}}">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/finance/fin002.svg-->
@@ -98,7 +98,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Form Pengembalian</span>
+                        <span class="menu-title">Form Rekap Produk</span>
                         
                     </span>
                 </a>

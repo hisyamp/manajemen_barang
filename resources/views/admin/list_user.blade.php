@@ -6,9 +6,8 @@
     <tr>
       <th class="text-center">No</th>
       <th class="text-center">Username</th>
-      <th class="text-center">Email</th>
       <th class="text-center">Role</th>
-      <th class="text-center">No HP</th>
+      <th class="text-center">Cabang</th>
       <th class="text-center">Status</th>
       <th class="text-center">Action</th>
     </tr>
@@ -18,7 +17,7 @@
 @section('script')
 <script type="text/javascript">
   $(document).ready(function () {
-    $('#table-user').DataTable({
+    var table = $('#table-user').DataTable({
       processing: true,
       serverSide: true,
       ajax: '{{url('api_user')}}',
@@ -34,20 +33,21 @@
            className: 'dt-body-center',
         },
         {
-           data: 'email',
-           className: 'dt-body-center'
+          "render": function ( data, type, row ) {
+            // console.log(row.role_id)
+             if(row.role_id==1)return 'Admin'
+             else if(row.role_id==2)return 'Karyawan'
+             else return '-'
+           },
+           className: 'dt-body-center',
         },
         {
-           data: 'role',
-           className: 'dt-body-center'
-        },
-        {
-           data: 'no_hp',
+           data: 'cabang',
            className: 'dt-body-center'
         },
         {
           "render": function ( data, type, row ) {
-            console.log(row.is_active)
+            // console.log(row.is_active)
              if(row.is_active==1)return 'aktif'
              else return 'tidak aktif'
            },
@@ -55,11 +55,12 @@
         },
         {
            "render": function ( data, type, row ) {
-             return `<button class="btn btn-primary btn-sm" >Lihat</button>
+            console.log(row)
+             return `
              <button class="btn btn-info btn-sm btn-reset" data-id="${row.id}">Reset</button>
-             <button class="btn btn-dark btn-sm btn-aktivasi" data-id="${row.id}">
+             <button class="btn btn-dark btn-sm btn-aktivasi" data-id="${row.id}" data-statusAktivasi="${row.is_active}">
              ${
-              (row.is_active==1) ? 'Disable' : 'Aktivasi'
+              row.is_active==1 ? 'Disable' : 'Activate'
              }
              </button>
              `
@@ -136,6 +137,7 @@
     });
     $('body').on('click', '.btn-aktivasi', function() {
         dataId = $(this).attr('data-id');
+        dataStatusAktivasi = $(this).attr('data-statusAktivasi');
         console.log(dataId)
         Swal.fire({ 
             title: "Konfirmasi",
@@ -148,7 +150,11 @@
                 $.ajax({
                     type: "GET", 
                     dataType: 'json',
-                    url: `{{ url('/aktivasi/${dataId}') }}`,
+                    url: `{{ url('/aktivasi') }}`,
+                    data: {
+                        id:dataId,
+                        val:dataStatusAktivasi==1?0:1
+                    },
                     beforeSend: function() {
                         Swal.fire({
                             title: 'Harap Tunggu',
@@ -178,6 +184,7 @@
                         });
                     },
                     success: function(result) {
+                        table.ajax.reload()
                         Swal.fire({
                             title: "Sukses!",
                             text: "Status aktivasi berhasil diubah !",
